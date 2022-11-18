@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://kit.fontawesome.com/833c3bce7f.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+*{
+        box-sizing: border-box;
+        margin:0;
+        padding: 0; 
+        list-style: none;
+        text-decoration: none;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        background-size: cover;
+        background-color: gray;
+        font-family: sans-serif;
+    }
+    #main{
+        height: 72px;
+        background: #84B6D8;
+        color: white;
+        font-size: 25px;
+    }
+    .log{
+        float: left;
+        margin-top: -20px;
+        margin-left:39px;
+    }
+    img {
+        margin-left: 70px;
+        margin-top: -17px;
+        width:160px;
+        height: 72px;
+        display:inline-block;
+    }
+    .log i{
+        position: absolute;
+        left: 1305px;
+        bottom: 10px;
+        top: 20px;
+    }
+    p{
+        margin-top: -60px;
+        text-align: center;
+    }
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: black;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 2566px;
+        color: grey;
+        display: block;
+        transition: 0.3s;
+    }
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+    #main {
+        transition: margin-left .5s;
+        padding: 16px;
+    }
+    .sidenav .menu{
+        width: 100%;
+        margin-top: 0px;
+    }
+    .sidenav .menu .item{
+        position: relative;
+        cursor: pointer;
+    }
+    .sidenav .menu .item a{
+        color: #fff;
+        font-size: 16px;
+        text-decoration: none;
+        display: block;
+        padding: 5px 30px;
+        line-height: 60px;
+    }
+    .sidenav .menu .item a:hover{
+        background: #8621F8;
+        transition: 0.3s ease;
+    }
+    .sidenav .menu .item i{
+        margin-right: 15px;
+    }
+    .sidenav .menu .item a .dropdown{
+        position: absolute;
+        right: 0;
+        margin: 20px;
+        transition: 0.3s ease;
+    }
+    .sidenav .menu .item .sub-menu{
+        background: rgba(255, 255, 255, 0.1);
+        display: none;
+    }
+    .sidenav .menu .item .sub-menu a{
+        padding-left: 80px;
+        font-size: 15px;
+    }
+    .rotate{
+        transform: rotate(90deg);
+    }
+    .container{
+        position: absolute;
+        right: 5px;
+        left:0px;
+        top: 10%;
+        height: 90%;
+        width: 100%;
+        background-color: white;
+        padding: 30px;
+    }
+    #sform i{
+        color: black;
+        position: absolute;
+        margin-top: 28px; 
+        margin-left: 18px;    
+    }
+    input[type=search] { 
+        width: 30%; 
+        padding: 12px 40px; 
+        margin: 8px 0; 
+        display: inline-block; 
+        border: 1px solid #ccc; 
+        box-sizing: border-box; 
+        background-color: white;
+        border-radius: 20px;    
+    }
+    .table{
+        width: 100%;
+        border-collapse: collapse;
+        height: 5px;
+    }
+
+    .table td,.table th{
+        padding:12px 15px;
+        border:1px solid #ddd;
+        text-align: center;
+        font-size:16px;
+    }
+
+    .table th{
+        background-color: lightblue;
+        color:#6F6F6F;
+    }
+
+    .table tbody tr:nth-child(even){
+        background-color: #D6D5D5;
+    }
+
+@media(max-width: 500px){
+    .table thead{
+        display: none;
+    }
+
+    .table, .table tbody, .table tr, .table td{
+        display: block;
+        width: 100%;
+    }
+    .table tr{
+        margin-bottom:15px;
+    }
+    .table td{
+        text-align: right;
+        padding-left: 50%;
+        text-align: right;
+        position: relative;
+    }
+    .table td::before{
+        content: attr(data-label);
+        position: absolute;
+        left:0;
+        width: 50%;
+        padding-left:15px;
+        font-size:15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
+    #table-wrapper {
+        position:relative;
+    }
+    #table-scroll {
+        height:470px;
+        overflow:auto;  
+        width:100%;
+        width:100%;
+        height: 420px;
+        margin-top:20px;
+    }
+    #table-wrapper table {
+        width:100%;
+    }
+    #table-wrapper table * {
+        color:black;
+    }
+    #table-wrapper table thead th .text {
+        position:absolute;   
+        top:-20px;
+        z-index:2;
+        height:20px;
+        width:35%;
+        border:1px solid red;
+}
+    .up{
+      background-color: lightblue;
+      position: absolute;
+      right: 86px;
+      top:540px;
+      padding: 13px 3px; 
+      margin: 8px 0; 
+      border: none; 
+      width: 8%; 
+      border-radius: 20px;
+      font-size: 15px;
+    }
+    .k {
+    width:200px;
+    position: relative;
+}
+.click{
+  position: absolute;
+  left:1280px;
+  top:20px;
+  background-color: #84B6D8;
+}
+.click:hover {
+    background-color: #84B6D8;
+    width:20px;
+}
+.click,.links {
+
+    padding: 1px;
+    font-size: 1.2em;
+    font-family: futura Md BT;
+    border: none;
+    outline: none;
+    color:white;
+    transition: 0.3s;
+}
+.list {
+  position: absolute;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: 0.3s;
+}
+.newlist {
+    transform: scaleY(1);
+}
+.links {
+  width:100px;
+  background-color: #283c63;
+  position: absolute;
+  left:1207px;
+  top:18px;
+  height: 22px;
+}
+
+.links:hover {
+    background-color: #84B6D8;
+    transform: scale(1.1);
+}
+.click i{
+  position: relative;
+  left: -40px;
+  right:-200px;
+  top:-30px;
+}
+</style>
+</head>
+<body>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+     <div class="menu">
+       <div class="item">
+
+         <a class="sub-btn"><i class="fas fa-table"></i>Dashboard<i class="fas fa-angle-right dropdown"></i></a>
+         <div class="sub-menu">
+           <a href="main.html" class="sub-item">Analytics</a>
+           <a href="user.html" class="sub-item">Users</a>
+           <a href="feedback.html" class="sub-item">Feedback</a>
+           <a href="stress.html" class="sub-item">Stress Test</a>
+         </div>
+
+       </div>
+       <div class="item">
+         <a class="sub-btn"><i class="fas fa-cogs"></i>Management<i class="fas fa-angle-right dropdown"></i></a>
+         <div class="sub-menu">
+           <a href="music.html" class="sub-item">Music Therapy</a>
+           <a href="stressr.html" class="sub-item">Stress Reliever</a>
+           <a href="motivational.html" class="sub-item">Motivational Quotes</a>
+         </div>
+       </div>
+     </div>
+</div>
+<div id="main">
+    <div>
+        <i class="fas fa-user-circle" style="position: absolute;left: 1180px;bottom: 10px;top: 20px;"></i>
+        <img src="LOGO ().png">
+        <p>S E R E N I T Y &nbsp&nbspC L A I R</p>
+        <div class="log">
+            <div class="k">
+            <button class="click"><i class="fas fa-chevron-down"></i></button>
+            <div class="list">
+                <a class="links" style="font-size: 20px;text-align: center;" href="login.html">Sign Out</a>
+            </div>
+        </div>
+        <script>
+
+            let click = document.querySelector('.click');
+
+            let list = document.querySelector('.list');
+
+            click.addEventListener("click",()=>{
+
+                list.classList.toggle('newlist');
+
+            });
+
+        </script>
+        </div>
+        <span style="font-size:30px; position: absolute;left: 25px;bottom: 10px;top: 13px;" onclick="openNav()">&#9776;</span>
+    </div>
+
+    <div class="container" >
+            <form id="sform"> 
+                <i class="fa-solid fa-magnifying-glass fa-2xs"></i>
+                <input type="search" id="query" name="q" placeholder="Search...">
+<div id="table-wrapper">
+  <div id="table-scroll">
+        <table class="table">
+        <thead>
+        <tr>
+         <th>Title</th>
+         <th>Genre</th>
+         <th>Artist</th>
+        </tr>
+     </thead>
+     <tbody style="background-color: #999797;">
+          <tr >
+              <td>Floating On Your Cloud</td>
+              <td>Classical</td>
+              <td>Carolyn King</td>
+          </tr>
+          <tr >
+              <td>Dissolve into Sleep</td>
+              <td>Classical</td>
+              <td>Elliot Treves</td>
+          </tr>
+          <tr >
+              <td>Completing The Day</td>
+              <td>Classical</td>
+              <td>Mary Katherine</td>
+          </tr>
+          <tr >
+              <td>Cloud Sleep Practice</td>
+              <td>Classical</td>
+              <td>Crystal Johnson</td>
+          </tr>
+          <tr >
+              <td>All Blues</td>
+              <td>Jazz</td>
+              <td>Miles Davis</td>
+          </tr>
+          <tr >
+              <td>Bird Land</td>
+              <td>Jazz</td>
+              <td>Weather Report</td>
+          </tr>
+          <tr >
+              <td>Take a Train</td>
+              <td>Jazz</td>
+              <td>Duke elinton</td>
+          </tr>
+          <tr >
+              <td>Round Midnight</td>
+              <td>Jazz</td>
+              <td>Thelonious Monk</td>
+          </tr>
+          <tr >
+              <td>My Favorite Things</td>
+              <td>Jazz</td>
+              <td>John Coltare</td>
+          </tr>
+          <tr >
+              <td>Joyful Birds</td>
+              <td>Nature</td>
+              <td>Nature Therapy Academy</td>
+          </tr>
+          <tr >
+              <td>Night Ambient</td>
+              <td>Nature</td>
+              <td>Nature Therapy Academy</td>
+          </tr>
+          <tr >
+              <td>Gentle Water</td>
+              <td>Nature</td>
+              <td>Nature Therapy Academy</td>
+          </tr>
+          <tr >
+              <td>Blissful Sleep</td>
+              <td>Nature</td>
+              <td>Nature Therapy Academy</td>
+          </tr>
+          <tr >
+              <td>Healing Music</td>
+              <td>Nature</td>
+              <td>Nature Therapy Academy</td>
+          </tr>
+     </tbody>
+   </table>
+</div>
+</div>
+            </form>
+            <button class="up">Upload</button>
+    </div>
+</div>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+ $('.sub-btn').click(function(){
+       $(this).next('.sub-menu').slideToggle();
+       $(this).find('.dropdown').toggleClass('rotate');
+     });
+</script>
+</body>
+</html> 
